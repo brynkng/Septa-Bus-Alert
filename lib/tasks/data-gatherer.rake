@@ -4,45 +4,46 @@ require 'pg'
 require 'net/http'
 require 'json'
 
-conn = PG.connect( dbname: 'septa_bus_alert' ) 
+task :gather => :environment do
 
-while true
-	busNumbers = (1..206).to_a + ('G'..'R').to_a
+	# conn = PG.connect( dbname: 'septa_bus_alert' ) 
 
-	busNumbers.each do |busNum|
-		puts busNum
-		uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + busNum.to_s)
+	while true
+		busNumbers = (1..206).to_a + ('G'..'R').to_a
 
-		response = Net::HTTP.get_response(uri)
+		busNumbers.each do |busNum|
+			uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + busNum.to_s)
+
+			response = Net::HTTP.get_response(uri)
 
 
-		if response.body != 'Invalid Route'
-			response = JSON.parse response.body
-			
-			#response
-			# ['bus'][array of buses][lat | lng | VehicleId | BlockId | Direction | destination | Offset]
-			response['bus'].each do |bus|
-				bus['route'] = busNum.to_s
-				if bus['destination'] != ""
-					conn.exec("INSERT INTO bus_history (route, latitute, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
-						+ bus['route'] + "','" \
-						+ bus['lat'] + "','" \
-						+ bus['lng'] + "','" \
-						+ bus['VehicleID'] + "','" \
-						+ bus['BlockID'] + "','" \
-						+ bus['Direction'] + "','" \
-						+ bus['destination'] + "','" \
-						+ bus['Offset'] + "')"
-					)
-				end
-			end		
+			if response.body != 'Invalid Route'
+				response = JSON.parse response.body
+				
+				#response
+				# ['bus'][array of buses][lat | lng | VehicleId | BlockId | Direction | destination | Offset]
+				response['bus'].each do |bus|
+					bus['route'] = busNum.to_s
+					if bus['destination'] != ""
+						ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitute, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
+							+ bus['route'] + "','" \
+							+ bus['lat'] + "','" \
+							+ bus['lng'] + "','" \
+							+ bus['VehicleID'] + "','" \
+							+ bus['BlockID'] + "','" \
+							+ bus['Direction'] + "','" \
+							+ bus['destination'] + "','" \
+							+ bus['Offset'] + "')"
+						)
+					end
+				end		
+			end
 		end
+
+		sleep 5 * 60
 	end
 
-	sleep 5 * 60
 end
-
-
 
 #find out general bus times and only grab data during those times so as to not waste space
 
