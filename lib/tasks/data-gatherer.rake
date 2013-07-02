@@ -4,20 +4,17 @@ require 'pg'
 require 'net/http'
 require 'json'
 
-def lockfile
-  return 'tmp/gathering.lock'
-end
-
 def running!
-  `touch #{lockfile}`
+  ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = true WHERE id = 1')
 end
 
 def done!
-  `rm #{lockfile}`
+  ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = false WHERE id = 1')
 end
 
 def running?
-  File.exists?(lockfile)
+  result = ActiveRecord::Base.connection.execute('SELECT is_locked FROM lock WHERE id = 1')
+  return result.first['is_locked'] == 't'
 end
 
 task :gather => :environment do
