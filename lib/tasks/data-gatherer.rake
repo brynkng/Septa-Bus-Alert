@@ -6,8 +6,6 @@ require 'json'
 
 task :gather => :environment do
 
-	# conn = PG.connect( dbname: 'septa_bus_alert' ) 
-
 	while true
 		busNumbers = (1..206).to_a + ('G'..'R').to_a
 
@@ -67,15 +65,15 @@ end
 # 	end 
 # end
 
-# CREATE TABLE bus_history (
-# 	id serial,
-# 	time timestamp default NOW(),
-# 	route text,
-# 	latitute float,
+#CREATE TABLE bus_history (
+#	id serial,
+#	time timestamp default NOW(),
+#	route text,
+#	latitute float,
 #   longitude float,
 #   vehicle_id integer,
 #   block_id integer,
 #   direction text,
 #   destination text,
 #   off_by integer
-# );
+#);
