@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Septa-Bus-Alert_development
+  database: SeptaBusAlert_development
   pool: 5
-  username: Septa-Bus-Alert
+  username: septabusalert
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: Septa-Bus-Alert_test
+  database: SeptaBusAlert_test
   pool: 5
-  username: Septa-Bus-Alert
+  username: septabusalert
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: Septa-Bus-Alert_production
+  database: SeptaBusAlert_production
   pool: 5
-  username: Septa-Bus-Alert
+  username: septabusalert
   password:
