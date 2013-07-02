@@ -5,7 +5,7 @@ require 'net/http'
 require 'json'
 
 def lockfile
-  Rails.root.join('tmp', 'pids', 'leads_task.lock')
+  return 'tmp/gathering.lock'
 end
 
 def running!
