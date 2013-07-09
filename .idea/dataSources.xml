@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="539885417">
+    <data-source source="LOCAL" name="Rails SeptaBusAlert: test" product="PostgreSQL" version="9.2.3" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.1 JDBC3 (build 901)" uuid="405c941f-3191-48cf-8d3b-21be7187dbd7">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:SeptaBusAlert_test</jdbc-url>
+      <user-name>septabusalert</user-name>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails SeptaBusAlert: development" product="PostgreSQL" version="9.2.3" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.1 JDBC3 (build 901)" uuid="3faff994-1ff0-4bf5-ad15-db5795d2ba55">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:SeptaBusAlert_development</jdbc-url>
+      <user-name>septabusalert</user-name>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails SeptaBusAlert: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="bda0af7c-0004-4fa6-a349-a31da5d9b1bc">
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:SeptaBusAlert_production</jdbc-url>
+      <user-name>septabusalert</user-name>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

@@ -1,0 +1,40 @@
+//find 3 different bus hits a week apart within 1 hour of each other within 200m. use haversine formula
+
+SELECT *,
+
+(
+	3956 * 2 * 
+		ASIN(
+			SQRT( 
+				POWER(
+					SIN(
+						(
+							39.939324 
+							-
+							abs(dest.latitute)
+						) 
+						* pi()/180 / 2
+					)
+					,
+					2
+				) 
+				+ 
+				COS(39.939324 * pi()/180)
+				* 
+				COS(
+					abs(dest.latitute) * pi()/180
+				) 
+				* 
+				POWER(
+					SIN(
+						(-75.161057 - dest.longitude) 
+						*  (pi()/180 / 2)
+					), 
+					2
+				) 
+			)
+	)
+) as distance
+FROM bus_history dest
+ORDER BY distance 
+LIMIT 3;

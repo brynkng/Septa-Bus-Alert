@@ -4,25 +4,24 @@ require 'pg'
 require 'net/http'
 require 'json'
 
-def running!
-  ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = true WHERE id = 1')
-end
+# def running!
+#   ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = true WHERE id = 1')
+# end
 
-def done!
-  ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = false WHERE id = 1')
-end
+# def done!
+#   ActiveRecord::Base.connection.execute('UPDATE lock SET is_locked = false WHERE id = 1')
+# end
 
 def running?
-  result = ActiveRecord::Base.connection.execute('SELECT is_locked FROM lock WHERE id = 1')
-  return result.first['is_locked'] == 't'
+  result = ActiveRecord::Base.connection.execute('SELECT time FROM bus_history ORDER BY time DESC LIMIT 1')
+  minutesSinceLastRun = (((Time.now.to_i - DateTime.parse(result.first['time']).to_i).abs)/60).round
+  return minutesSinceLastRun < 5
 end
 
 task :gather => :environment do
   unless running?
     begin
       puts "Start gathering!"
-
-      running!
 
       while true
         busNumbers = (1..206).to_a + ('G'..'R').to_a
@@ -68,7 +67,6 @@ task :gather => :environment do
       end
     ensure
       puts "Sad face :(. Gathering over"
-      done!
     end
   end
 end
