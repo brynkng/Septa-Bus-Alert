@@ -1,0 +1,24 @@
+latitude/longitude need to search for buses within 3 decimal places e.g. 40.077
+
+
+select 
+	vehicle_id, time
+from bus_history 
+where 
+	route='23' 
+	and latitute::text like '40.077%' 
+	and longitude::text like '40.077%' 
+	and time::text like '% 16:%';
+
+8000, 16:01
+
+
+select 
+	time
+from bus_history 
+where 
+	route='23' 
+	and vehicle_id = 8000
+	and latitute::text like '39.938%'
+	and time::text like '% 16:%';
+
