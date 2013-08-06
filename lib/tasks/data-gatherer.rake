@@ -43,7 +43,7 @@ task :gather => :environment do
               response['bus'].each do |bus|
                 bus['route'] = busNum.to_s
                 if bus['destination'] != ""
-                  ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitute, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
+                  ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitude, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
                     + bus['route'] + "','" \
                     + bus['lat'] + "','" \
                     + bus['lng'] + "','" \
@@ -97,7 +97,7 @@ end
 #	id serial,
 #	time timestamp default NOW(),
 #	route text,
-#	latitute float,
+#	latitude float,
 #   longitude float,
 #   vehicle_id integer,
 #   block_id integer,
