@@ -11,19 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702051540) do
+ActiveRecord::Schema.define(:version => 20130806191402) do
 
   create_table "bus_history", :id => false, :force => true do |t|
     t.integer  "id",          :null => false
     t.datetime "time"
     t.text     "route"
-    t.float    "latitute"
+    t.float    "latitude"
     t.float    "longitude"
     t.integer  "vehicle_id"
     t.integer  "block_id"
     t.text     "direction"
     t.text     "destination"
     t.integer  "off_by"
+  end
+
+  create_table "lock", :id => false, :force => true do |t|
+    t.integer "id"
+    t.boolean "is_locked", :default => false
   end
 
 end

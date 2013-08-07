@@ -4,35 +4,259 @@ require 'json'
 class EstimatorController < ActionController::Base
   protect_from_forgery
 
-  def estimate
-    #latitude = params[:latitude]
-    #longitude = params[:longitude]
-    #route = params[:route]
-    #direction = params[:direction]
+  def estimate(skipFirstBus = false)
+    @latitude = params[:latitude].sub('@', '.').to_f
+    @longitude = params[:longitude].sub('@', '.').to_f
+    @route = params[:route]
+    @direction = params[:direction]
 
-    route = 23
-    longitude = -75.16194
-    latitude = 39.934726
-    direction = "NorthBound"
+    #federal and 11th stop
+    #@route = 23
+    #@longitude = -75.16194
+    #@latitude = 39.934726
+    #@direction = "NorthBound"
 
-    buses = getNextBusesToArrive(direction, latitude, longitude, route)
+    buses = getNextBusesToArrive
+    if skipFirstBus
+      nextToArrive = buses[1]
+    else
+      nextToArrive = buses.first
+    end
 
-    #ActiveRecord::Base.connection.execute("
-    #SELECT
-    #  vehicle_id, time
-    #FROM bus_history
-    #WHERE
-    #  route = '23'
-    #  and latitude::text like '40.077%'
-    #  and longitude::text like '-75.161%'
-    #  and time::text like '% 16:%';
-    #")
+    vehicleData = []
 
-    render :json => buses.first
+    if nextToArrive
+      vehicleData = getStartHistoricalData(nextToArrive)
+    end
+
+    #render :json => [nextToArrive, vehicleData]
+    #return
+
+    historicalData = getHistoricalData(vehicleData)
+
+    #render :json => historicalData
+    #return
+
+    #remove outliers
+    finalHistoricalDataGroup = getFinalHistoricalDataGroup(historicalData)
+
+    puts 'final group'
+    p finalHistoricalDataGroup
+
+    finalArrivalData = getFinalArrivalData(finalHistoricalDataGroup, nextToArrive)
+
+    if finalArrivalData
+      if finalArrivalData[:time_to_arrive] <= 0
+        return estimate(true)
+      else
+        render :json => {
+            'time to arrive' => finalArrivalData[:time_to_arrive].to_s + ' minutes',
+            'vehicle' => nextToArrive['VehicleID'],
+            'm/s' => finalArrivalData[:meters_per_sec],
+            'distance' => finalArrivalData[:distance],
+            'start' => nextToArrive['lat'].to_s + ', ' + nextToArrive['lng'],
+            'end' => @latitude.to_s + ', ' + @longitude.to_s
+        }
+        return
+      end
+    end
+
+    render :json => nextToArrive
+
   end
 
-  def getNextBusesToArrive(direction, latitude, longitude, route)
-    uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + route.to_s)
+  def getFinalArrivalData(finalHistoricalDataGroup, nextToArrive)
+    if !finalHistoricalDataGroup.empty?
+
+      distanceTotal = 0
+      timeDiffTotal = 0
+      finalHistoricalDataGroup.each do |historicalDatum|
+        distanceTotal += historicalDatum[:distance]
+        timeDiffTotal += historicalDatum[:time_diff]
+      end
+
+      distanceAvg = distanceTotal / finalHistoricalDataGroup.count
+      timeDifAvg = timeDiffTotal / finalHistoricalDataGroup.count
+
+      distanceInMeters = distanceAvg * 100000
+
+      metersPerSec = distanceInMeters / timeDifAvg
+      metersPerSec *= 2
+
+      #TODO compute real distance with google maps api
+
+      distance =  (@latitude - nextToArrive['lat'].to_f).abs + (@longitude - nextToArrive['lng'].to_f).abs
+      distance *= 100000
+
+      timeUntilBusArrives = (((distance / metersPerSec) / 60) - nextToArrive['Offset'].to_i).round
+
+      return {:time_to_arrive => timeUntilBusArrives, :meters_per_sec => metersPerSec, :distance => distance}
+    end
+  end
+
+  def getFinalHistoricalDataGroup(historicalData)
+    #group into distances
+    groups = getHistoricalDataGroups(historicalData)
+
+    highestGroupCount = 0
+    finalHistoricalDataGroup = []
+
+    groups.each do |group|
+      puts 'processing group'
+      p group
+
+      if group.count > highestGroupCount
+        finalHistoricalDataGroup = group
+        highestGroupCount = group.count
+      elsif group.count == highestGroupCount
+        finalHistoricalDataGroup = finalHistoricalDataGroup | group
+      end
+    end
+
+    return finalHistoricalDataGroup
+  end
+
+  def getHistoricalDataGroups(historicalData)
+    groups = []
+    historicalData.each do |historicalDatum|
+      foundGroup = false
+      secondsThreshold = 100
+      distanceThreshold = 0.002
+
+      if groups.empty?
+        groups.push [historicalDatum]
+        foundGroup = true
+      else
+        groups.each_with_index do |group, index|
+          groupSample = group.first
+          withinTimeThresholdOfAverage = (historicalDatum[:time_diff] > (groupSample[:time_diff] - secondsThreshold) and historicalDatum[:time_diff] < (groupSample[:time_diff] + secondsThreshold))
+          withinDistanceThresholdOfAverage = (historicalDatum[:distance] > (groupSample[:distance] - distanceThreshold) and historicalDatum[:distance] < (groupSample[:distance] + distanceThreshold))
+          if withinTimeThresholdOfAverage and withinDistanceThresholdOfAverage
+            groups[index].push historicalDatum
+            foundGroup = true
+            next
+          end
+        end
+      end
+
+      if !foundGroup
+        groups.push [historicalDatum]
+      end
+    end
+
+    return groups
+  end
+
+  def getHistoricalData(vehicleData)
+    historicalData = []
+    vehicleData.each do |vehicleDatum|
+      vehicleId = vehicleDatum[:vehicle_id]
+      vehicleStartTime = Time.parse(vehicleDatum[:time]) + 1.minutes
+      vehicleEndTime = vehicleStartTime + 1.hours
+
+      #find closest to destination coords, store distance/time diff
+
+      puts 'start: ' + vehicleStartTime.to_s
+      puts 'end: ' + vehicleEndTime.to_s
+
+      rows = ActiveRecord::Base.connection.execute("
+        SELECT longitude, latitude, time
+        FROM bus_history
+        WHERE
+          route = '#{@route}'
+          AND vehicle_id = #{vehicleId}
+          AND time between '#{vehicleStartTime.to_s}'
+          AND '#{vehicleEndTime.to_s}';
+      ")
+
+      rows = rows.to_a.sort {
+          |busDataA, busDataB|
+
+        case @direction
+          when 'NorthBound', 'SouthBound'
+            distanceA = (@latitude - busDataA['latitude'].to_f).abs
+            distanceB = (@latitude - busDataB['latitude'].to_f).abs
+          when 'EastBound', 'WestBound'
+            distanceA = (@longitude - busDataA['longitude'].to_f).abs
+            distanceB = (@longitude - busDataB['longitude'].to_f).abs
+        end
+
+        distanceA <=> distanceB
+      }
+      #render :json => [nextToArrive, rows]
+      #return
+
+      closestEndData = rows.first
+
+      if closestEndData
+        #TODO compute road distance using google maps api
+        case @direction
+          when 'NorthBound', 'SouthBound'
+            distance = @latitude - closestEndData['latitude'].to_f
+          when 'EastBound', 'WestBound'
+            distance = @longitude - closestEndData['longitude'].to_f
+        end
+
+        puts "distance: " + distance.abs.to_s
+        timeDiff = Time.parse(closestEndData['time']) - vehicleStartTime
+        puts "time diff: " + timeDiff.to_s
+        historicalData.push({:distance => distance.abs, :time_diff => timeDiff})
+      end
+
+    end
+
+    return historicalData
+  end
+
+  def getStartHistoricalData(nextToArrive)
+    vehicleData = []
+    nextToArriveLat = nextToArrive['lat']
+    nextToArriveLong = nextToArrive['lng']
+
+    #TODO take current time into account
+    timeA = (Time.now - 1.weeks).strftime('%Y-%m-%d')
+    timeB = (Time.now - 2.weeks).strftime('%Y-%m-%d %H')
+    timeC = (Time.now - 3.weeks).strftime('%Y-%m-%d %H')
+    rows = ActiveRecord::Base.connection.execute("
+        SELECT
+          distinct(vehicle_id), id, longitude, latitude, direction, time
+        FROM bus_history
+        WHERE
+          route = '#{@route}'
+          AND direction = '#{@direction}'
+          AND latitude::text like '#{nextToArriveLat.to_s.slice(0, 5)}%'
+          AND longitude::text like '#{nextToArriveLong.to_s.slice(0, 6)}%'
+        limit 10
+      ")
+    #AND time between '#{timeA}' and '#{Time.now}'
+
+    #render :json => [nextToArrive, rows]
+    #return
+
+    rows = rows.to_a.sort {
+        |busDataA, busDataB|
+
+      case @direction
+        when 'NorthBound', 'SouthBound'
+          distanceA = (nextToArriveLat.to_f - busDataA['latitude'].to_f).abs
+          distanceB = (nextToArriveLat.to_f - busDataB['latitude'].to_f).abs
+        when 'EastBound', 'WestBound'
+          distanceA = (nextToArriveLong.to_f - busDataA['longitude'].to_f).abs
+          distanceB = (nextToArriveLong.to_f - busDataB['longitude'].to_f).abs
+      end
+
+      distanceA <=> distanceB
+    }
+
+    rows.each do |row|
+      vehicleData.push({:vehicle_id => row['vehicle_id'], :lat => row['latitude'], :long => row['longitude'], :time => row['time']})
+    end
+
+    return vehicleData
+  end
+
+  def getNextBusesToArrive
+    uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + @route.to_s)
 
     begin
 
@@ -43,16 +267,16 @@ class EstimatorController < ActionController::Base
         response['bus'].keep_if {
             |bus|
 
-          if bus['Direction'] == direction
-            case direction
+          if bus['Direction'] == @direction
+            case @direction
               when 'NorthBound'
-                bus['lat'].to_f < latitude
+                bus['lat'].to_f < @latitude
               when 'SouthBound'
-                bus['lat'].to_f > latitude
+                bus['lat'].to_f > @latitude
               when 'WestBound'
-                bus['long'].to_f < longitude
+                bus['long'].to_f < @longitude
               when 'EastBound'
-                bus['long'].to_f > longitude
+                bus['long'].to_f > @longitude
             end
           end
         }
@@ -62,8 +286,8 @@ class EstimatorController < ActionController::Base
 
         sortedBuses = response['bus'].sort {
             |bus1, bus2|
-          bus1Distance = (latitude - bus1['lat'].to_f).abs + (longitude - bus1['lng'].to_f).abs
-          bus2Distance = (latitude - bus2['lat'].to_f).abs + (longitude - bus2['lng'].to_f).abs
+          bus1Distance = (@latitude - bus1['lat'].to_f).abs + (@longitude - bus1['lng'].to_f).abs
+          bus2Distance = (@latitude - bus2['lat'].to_f).abs + (@longitude - bus2['lng'].to_f).abs
           bus1Distance <=> bus2Distance
         }
 

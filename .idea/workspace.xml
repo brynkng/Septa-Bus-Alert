@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b49a358a-e793-4264-ac86-0bbc40836992" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20130806191402_rename_lat_col.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+    <list default="true" id="b49a358a-e793-4264-ac86-0bbc40836992" name="Default" comment="gnow spitting out the">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SeptaBusAlert.iml" afterPath="$PROJECT_DIR$/.idea/SeptaBusAlert.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/data-gatherer.rake" afterPath="$PROJECT_DIR$/lib/tasks/data-gatherer.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SeptaBusAlert.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813732682" ignored="false" />
+    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375900012266" ignored="false" />
     <file path="/20130702051540_add_bus_history.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372742292146" ignored="false" />
     <file path="/data-gatherer.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372782651177" ignored="false" />
     <file path="/fragment.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372792804954" ignored="false" />
@@ -55,14 +52,14 @@
     <file path="/*.regexp" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294157050" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/config/initializers/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294233699" ignored="false" />
     <file path="/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294232607" ignored="false" />
-    <file path="/estimator_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375816479862" ignored="false" />
+    <file path="/estimator_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375906258726" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813895159" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810157484" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375899376168" ignored="false" />
     <file path="/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810036623" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/controllers/wall_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810072447" ignored="false" />
     <file path="/wall_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810071194" ignored="false" />
     <file path="/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375812404297" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/controllers/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375812417775" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/controllers/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375899359796" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/pick_photo_twitter.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813901151" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/pick_photo_facebook.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813433436" ignored="false" />
     <file path="/pick_photo_facebook.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813365029" ignored="false" />
@@ -73,6 +70,13 @@
     <file path="/pick_photo_instagram.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813904894" ignored="false" />
     <file path="/temp.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375815931768" ignored="false" />
     <file path="/20130806191402_rename_lat_col.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375816465247" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/config/application.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375892297568" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/lib/tasks/wall.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375892410624" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/lib/imageslicer.php" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375896318836" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/models/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375900047994" ignored="false" />
+    <file path="/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375900047281" ignored="false" />
+    <file path="/Gemfile" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375900155758" ignored="false" />
+    <file path="/routes.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375905883440" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,10 +132,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="data-gatherer.rake" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="data-gatherer.rake" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/tasks/data-gatherer.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="18" selection-start="978" selection-end="978" vertical-scroll-proportion="0.3880597">
+            <state line="76" column="29" selection-start="2422" selection-end="2422" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="development.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,16 +162,16 @@
       <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="24" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0">
+            <state line="58" column="21" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estimator_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="estimator_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="18" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+            <state line="11" column="40" selection-start="319" selection-end="319" vertical-scroll-proportion="0.015120967">
               <folding />
             </state>
           </provider>
@@ -167,7 +189,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
+            <state line="10" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -201,11 +223,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/db/migrate/20130702051540_add_bus_history.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20130806191402_rename_lat_col.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/data-gatherer.rake" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
       </list>
     </option>
   </component>
@@ -328,6 +350,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="migrate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeptaBusAlert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeptaBusAlert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeptaBusAlert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeptaBusAlert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,7 +784,11 @@
       <created>1372782752081</created>
       <updated>1372782752081</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rename latitute to latitude... Finished next to arrive bus logic">
+      <created>1375816557892</created>
+      <updated>1375816557892</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -743,7 +801,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1189968" sideWeight="0.67097414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1189968" sideWeight="0.6003976" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39960238" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -805,7 +863,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Heroku doesn't like file based lcoks, let's go with db based locks" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename latitute to latitude... Finished next to arrive bus logic" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -823,6 +881,7 @@
     <MESSAGE value="built exception handling and pid locking into gathering script" />
     <MESSAGE value="move pid lock to just the tmp dir so heroku can write to it" />
     <MESSAGE value="Heroku doesn't like file based lcoks, let's go with db based locks" />
+    <MESSAGE value="rename latitute to latitude... Finished next to arrive bus logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -857,6 +916,48 @@
         <state line="2" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/environment.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/boot.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/data-gatherer.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="29" selection-start="2422" selection-end="2422" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="59" selection-start="805" selection-end="805" vertical-scroll-proportion="0.0">
@@ -866,14 +967,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="24" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0">
+        <state line="10" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -885,16 +979,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+        <state line="58" column="21" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/data-gatherer.rake">
+    <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="18" selection-start="978" selection-end="978" vertical-scroll-proportion="0.3880597">
+        <state line="11" column="40" selection-start="319" selection-end="319" vertical-scroll-proportion="0.015120967">
           <folding />
         </state>
       </provider>
