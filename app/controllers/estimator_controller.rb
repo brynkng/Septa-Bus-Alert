@@ -50,9 +50,7 @@ class EstimatorController < ActionController::Base
       nextToArrive = buses.first
     end
 
-    if nextToArrive
-      vehicleData = getStartHistoricalData(nextToArrive)
-    end
+    vehicleData = getStartHistoricalData(nextToArrive)
 
     #render :json => [nextToArrive, vehicleData]
     #return
@@ -247,48 +245,49 @@ class EstimatorController < ActionController::Base
 
   def getStartHistoricalData(nextToArrive)
     vehicleData = []
-    nextToArriveLat = nextToArrive['lat']
-    nextToArriveLong = nextToArrive['lng']
+    if nextToArrive
+      nextToArriveLat = nextToArrive['lat']
+      nextToArriveLong = nextToArrive['lng']
 
-    #TODO take current time into account
-    timeA = (Time.now - 1.weeks).strftime('%Y-%m-%d')
-    timeB = (Time.now - 2.weeks).strftime('%Y-%m-%d %H')
-    timeC = (Time.now - 3.weeks).strftime('%Y-%m-%d %H')
-    rows = ActiveRecord::Base.connection.execute("
-        SELECT
-          distinct(vehicle_id), id, longitude, latitude, direction, time
-        FROM bus_history
-        WHERE
-          route = '#{@route}'
-          AND direction = '#{@direction}'
-          AND latitude::text like '#{nextToArriveLat.to_s.slice(0, 5)}%'
-          AND longitude::text like '#{nextToArriveLong.to_s.slice(0, 6)}%'
-        limit 10
-      ")
-    #AND time between '#{timeA}' and '#{Time.now}'
+      #TODO take current time into account
+      timeA = (Time.now - 1.weeks).strftime('%Y-%m-%d')
+      timeB = (Time.now - 2.weeks).strftime('%Y-%m-%d %H')
+      timeC = (Time.now - 3.weeks).strftime('%Y-%m-%d %H')
+      rows = ActiveRecord::Base.connection.execute("
+          SELECT
+            distinct(vehicle_id), id, longitude, latitude, direction, time
+          FROM bus_history
+          WHERE
+            route = '#{@route}'
+            AND direction = '#{@direction}'
+            AND latitude::text like '#{nextToArriveLat.to_s.slice(0, 5)}%'
+            AND longitude::text like '#{nextToArriveLong.to_s.slice(0, 6)}%'
+          limit 10
+        ")
+      #AND time between '#{timeA}' and '#{Time.now}'
 
-    #render :json => [nextToArrive, rows]
-    #return
+      #render :json => [nextToArrive, rows]
+      #return
 
-    rows = rows.to_a.sort {
-        |busDataA, busDataB|
+      rows = rows.to_a.sort {
+          |busDataA, busDataB|
 
-      case @direction
-        when 'NorthBound', 'SouthBound'
-          distanceA = (nextToArriveLat.to_f - busDataA['latitude'].to_f).abs
-          distanceB = (nextToArriveLat.to_f - busDataB['latitude'].to_f).abs
-        when 'EastBound', 'WestBound'
-          distanceA = (nextToArriveLong.to_f - busDataA['longitude'].to_f).abs
-          distanceB = (nextToArriveLong.to_f - busDataB['longitude'].to_f).abs
+        case @direction
+          when 'NorthBound', 'SouthBound'
+            distanceA = (nextToArriveLat.to_f - busDataA['latitude'].to_f).abs
+            distanceB = (nextToArriveLat.to_f - busDataB['latitude'].to_f).abs
+          when 'EastBound', 'WestBound'
+            distanceA = (nextToArriveLong.to_f - busDataA['longitude'].to_f).abs
+            distanceB = (nextToArriveLong.to_f - busDataB['longitude'].to_f).abs
+        end
+
+        distanceA <=> distanceB
+      }
+
+      rows.each do |row|
+        vehicleData.push({:vehicle_id => row['vehicle_id'], :lat => row['latitude'], :long => row['longitude'], :time => row['time']})
       end
-
-      distanceA <=> distanceB
-    }
-
-    rows.each do |row|
-      vehicleData.push({:vehicle_id => row['vehicle_id'], :lat => row['latitude'], :long => row['longitude'], :time => row['time']})
     end
-
     return vehicleData
   end
 
