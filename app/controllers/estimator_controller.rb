@@ -5,19 +5,39 @@ class EstimatorController < ActionController::Base
   protect_from_forgery
 
   def estimate(skipFirstBus = false)
-    @latitude = params[:latitude].sub('@', '.').to_f
-    @longitude = params[:longitude].sub('@', '.').to_f
     @route = params[:route]
     @direction = params[:direction]
+    stop_id = params[:stop_id]
+
+    uri = URI.parse("http://www3.septa.org/hackathon/Stops/" + @route.to_s)
+
+    response = Net::HTTP.get_response(uri)
+
+    response = JSON.parse response.body
+    response.each do |stopInfo|
+      puts 'showing stop info'
+      p stopInfo
+      if stopInfo['stopid'].to_s == stop_id
+        @latitude = stopInfo['lat']
+        @longitude = stopInfo['lng']
+      end
+    end
+
+    if @latitude.nil?
+      render :json => 'Could not find stop info'
+      return
+    end
+
+
 
     #12th and chestnut, route 23
-    #lng":-75.160299,"lat":39.950501
+    #16131
 
     #broad and chestnut, route 4
-    #estimate/23/NorthBound/39@950482/-75@16409
+    #estimate/23/NorthBound/15185
 
     #federal and 11th stop
-    #estimate/23/NorthBound/39@934726/-75@16194
+    #estimate/23/NorthBound/16832
     #@route = 23
     #@longitude = -75.16194
     #@latitude = 39.934726

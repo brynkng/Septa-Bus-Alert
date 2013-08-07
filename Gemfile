@@ -9,6 +9,7 @@ gem 'pg'
 
 group :development, :test do
   gem 'pry-rails'                              # Improved debugging
+  gem 'debugger'
 end
 
 
