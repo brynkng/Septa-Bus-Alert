@@ -15,8 +15,6 @@ class EstimatorController < ActionController::Base
 
     response = JSON.parse response.body
     response.each do |stopInfo|
-      puts 'showing stop info'
-      p stopInfo
       if stopInfo['stopid'].to_s == stop_id
         @latitude = stopInfo['lat']
         @longitude = stopInfo['lng']
@@ -132,6 +130,7 @@ class EstimatorController < ActionController::Base
 
     highestGroupCount = 0
     finalHistoricalDataGroup = []
+    finalGroupsWithSameCount = []
 
     groups.each do |group|
       puts 'processing group'
@@ -140,8 +139,20 @@ class EstimatorController < ActionController::Base
       if group.count > highestGroupCount
         finalHistoricalDataGroup = group
         highestGroupCount = group.count
+        finalGroupsWithSameCount = []
       elsif group.count == highestGroupCount
-        finalHistoricalDataGroup = finalHistoricalDataGroup | group
+        finalGroupsWithSameCount.push group
+      end
+    end
+
+    #if we have multiple groups of historical data all with the same count let's use the shortest one
+    #MIGHT NEED TO DO THIS FROM THE START. CAN WE COUNT REALLY COUNT ON THE LARGEST GROUP BEING THE MOST REALISTIC?
+    if !finalGroupsWithSameCount.empty?
+      shortestTime = 99999999
+
+      finalGroupsWithSameCount.each do |group|
+        groupSample = group.first
+        finalHistoricalDataGroup = group if groupSample[:time_diff] < shortestTime
       end
     end
 
@@ -153,7 +164,7 @@ class EstimatorController < ActionController::Base
     historicalData.each do |historicalDatum|
       foundGroup = false
       secondsThreshold = 100
-      distanceThreshold = 0.002
+      distanceThreshold = 0.003
 
       if groups.empty?
         groups.push [historicalDatum]
