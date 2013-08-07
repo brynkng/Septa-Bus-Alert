@@ -135,6 +135,8 @@ class EstimatorController < ActionController::Base
       puts 'processing group'
       p group
 
+      groupSample = group.first
+
       finalHistoricalDataGroup = group if groupSample[:time_diff] < shortestTime
     end
 
