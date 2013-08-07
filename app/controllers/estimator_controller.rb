@@ -10,7 +10,14 @@ class EstimatorController < ActionController::Base
     @route = params[:route]
     @direction = params[:direction]
 
+    #12th and chestnut, route 23
+    #lng":-75.160299,"lat":39.950501
+
+    #broad and chestnut, route 4
+    #estimate/23/NorthBound/39@950482/-75@16409
+
     #federal and 11th stop
+    #estimate/23/NorthBound/39@934726/-75@16194
     #@route = 23
     #@longitude = -75.16194
     #@latitude = 39.934726
@@ -22,8 +29,6 @@ class EstimatorController < ActionController::Base
     else
       nextToArrive = buses.first
     end
-
-    vehicleData = []
 
     if nextToArrive
       vehicleData = getStartHistoricalData(nextToArrive)
@@ -81,11 +86,20 @@ class EstimatorController < ActionController::Base
       distanceInMeters = distanceAvg * 100000
 
       metersPerSec = distanceInMeters / timeDifAvg
-      metersPerSec *= 2
+      #metersPerSec *= 2
 
       #TODO compute real distance with google maps api
 
       distance =  (@latitude - nextToArrive['lat'].to_f).abs + (@longitude - nextToArrive['lng'].to_f).abs
+      distance *= 100000
+
+      case @direction
+        when 'NorthBound', 'SouthBound'
+          distance =  (@latitude - nextToArrive['lat'].to_f).abs
+        when 'EastBound', 'WestBound'
+          distance =  (@longitude - nextToArrive['lng'].to_f).abs
+      end
+
       distance *= 100000
 
       timeUntilBusArrives = (((distance / metersPerSec) / 60) - nextToArrive['Offset'].to_i).round
@@ -130,6 +144,9 @@ class EstimatorController < ActionController::Base
         groups.each_with_index do |group, index|
           groupSample = group.first
           withinTimeThresholdOfAverage = (historicalDatum[:time_diff] > (groupSample[:time_diff] - secondsThreshold) and historicalDatum[:time_diff] < (groupSample[:time_diff] + secondsThreshold))
+          #puts 'bottom dist thresh ' + (groupSample[:distance] - distanceThreshold).to_s
+          #puts 'top dist thresh ' + (groupSample[:distance] + distanceThreshold).to_s
+          #puts 'current historical datum ' + historicalDatum[:distance].to_s
           withinDistanceThresholdOfAverage = (historicalDatum[:distance] > (groupSample[:distance] - distanceThreshold) and historicalDatum[:distance] < (groupSample[:distance] + distanceThreshold))
           if withinTimeThresholdOfAverage and withinDistanceThresholdOfAverage
             groups[index].push historicalDatum
@@ -192,9 +209,9 @@ class EstimatorController < ActionController::Base
         #TODO compute road distance using google maps api
         case @direction
           when 'NorthBound', 'SouthBound'
-            distance = @latitude - closestEndData['latitude'].to_f
+            distance = vehicleDatum[:lat].to_f - closestEndData['latitude'].to_f
           when 'EastBound', 'WestBound'
-            distance = @longitude - closestEndData['longitude'].to_f
+            distance = vehicleDatum[:long].to_f - closestEndData['longitude'].to_f
         end
 
         puts "distance: " + distance.abs.to_s

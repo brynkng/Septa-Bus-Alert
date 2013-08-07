@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b49a358a-e793-4264-ac86-0bbc40836992" name="Default" comment="gnow spitting out the">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SeptaBusAlert.iml" afterPath="$PROJECT_DIR$/.idea/SeptaBusAlert.iml" />
+    <list default="true" id="b49a358a-e793-4264-ac86-0bbc40836992" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SeptaBusAlert.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375900012266" ignored="false" />
+    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375906322307" ignored="false" />
     <file path="/20130702051540_add_bus_history.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372742292146" ignored="false" />
     <file path="/data-gatherer.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372782651177" ignored="false" />
     <file path="/fragment.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372792804954" ignored="false" />
@@ -52,7 +47,7 @@
     <file path="/*.regexp" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294157050" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/config/initializers/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294233699" ignored="false" />
     <file path="/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294232607" ignored="false" />
-    <file path="/estimator_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375906258726" ignored="false" />
+    <file path="/estimator_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375908207367" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813895159" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375899376168" ignored="false" />
     <file path="/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810036623" ignored="false" />
@@ -171,7 +166,7 @@
       <file leaf-file-name="estimator_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="40" selection-start="319" selection-end="319" vertical-scroll-proportion="0.015120967">
+            <state line="213" column="47" selection-start="6686" selection-end="6686" vertical-scroll-proportion="0.9395161">
               <folding />
             </state>
           </provider>
@@ -788,7 +783,11 @@
       <created>1375816557892</created>
       <updated>1375816557892</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Now spitting out time to arrival with request params. Seems to be a bit short. Doubling the m/s but that seems really wrong">
+      <created>1375906325768</created>
+      <updated>1375906325768</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -863,7 +862,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename latitute to latitude... Finished next to arrive bus logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now spitting out time to arrival with request params. Seems to be a bit short. Doubling the m/s but that seems really wrong" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -882,6 +881,7 @@
     <MESSAGE value="move pid lock to just the tmp dir so heroku can write to it" />
     <MESSAGE value="Heroku doesn't like file based lcoks, let's go with db based locks" />
     <MESSAGE value="rename latitute to latitude... Finished next to arrive bus logic" />
+    <MESSAGE value="Now spitting out time to arrival with request params. Seems to be a bit short. Doubling the m/s but that seems really wrong" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -944,13 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/data-gatherer.rake">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="29" selection-start="2422" selection-end="2422" vertical-scroll-proportion="0.0">
@@ -979,6 +972,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="21" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
@@ -988,7 +988,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="40" selection-start="319" selection-end="319" vertical-scroll-proportion="0.015120967">
+        <state line="213" column="47" selection-start="6686" selection-end="6686" vertical-scroll-proportion="0.9395161">
           <folding />
         </state>
       </provider>
