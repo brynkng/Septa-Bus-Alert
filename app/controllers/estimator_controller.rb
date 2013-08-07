@@ -128,32 +128,14 @@ class EstimatorController < ActionController::Base
     #group into distances
     groups = getHistoricalDataGroups(historicalData)
 
-    highestGroupCount = 0
     finalHistoricalDataGroup = []
-    finalGroupsWithSameCount = []
+    shortestTime = 99999999
 
     groups.each do |group|
       puts 'processing group'
       p group
 
-      if group.count > highestGroupCount
-        finalHistoricalDataGroup = group
-        highestGroupCount = group.count
-        finalGroupsWithSameCount = []
-      elsif group.count == highestGroupCount
-        finalGroupsWithSameCount.push group
-      end
-    end
-
-    #if we have multiple groups of historical data all with the same count let's use the shortest one
-    #MIGHT NEED TO DO THIS FROM THE START. CAN WE COUNT REALLY COUNT ON THE LARGEST GROUP BEING THE MOST REALISTIC?
-    if !finalGroupsWithSameCount.empty?
-      shortestTime = 99999999
-
-      finalGroupsWithSameCount.each do |group|
-        groupSample = group.first
-        finalHistoricalDataGroup = group if groupSample[:time_diff] < shortestTime
-      end
+      finalHistoricalDataGroup = group if groupSample[:time_diff] < shortestTime
     end
 
     return finalHistoricalDataGroup
