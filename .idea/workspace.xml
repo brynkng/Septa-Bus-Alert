@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49a358a-e793-4264-ac86-0bbc40836992" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SeptaBusAlert.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375919055161" ignored="false" />
+    <file path="/Dummy.txt" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997587829" ignored="false" />
     <file path="/20130702051540_add_bus_history.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372742292146" ignored="false" />
     <file path="/data-gatherer.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372782651177" ignored="false" />
     <file path="/fragment.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372792804954" ignored="false" />
-    <file path="$PROJECT_DIR$/../WB-Clone/app/mailers/blast_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323641" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/mailers/blast_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793565" ignored="false" />
     <file path="/blast_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372792977038" ignored="false" />
-    <file path="$PROJECT_DIR$/../WB-Clone/config/routes.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323642" ignored="false" />
-    <file path="$PROJECT_DIR$/../WB-Clone/app/models/user.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323642" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/config/routes.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/models/user.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/db/schema.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323642" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/lib/response_timer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372797810023" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/config/environment.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372797529417" ignored="false" />
@@ -22,7 +22,7 @@
     <file path="$PROJECT_DIR$/../WB-Clone/config/application.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372798347322" ignored="false" />
     <file path="/response_timer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372797759168" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/db/migrate/20130628185754_create_unsubscribe_trackings.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323641" ignored="false" />
-    <file path="$PROJECT_DIR$/../WB-Clone/app/mailers/registration_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323641" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/mailers/registration_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/blast_mailer/woot-letter-7-1-13.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323641" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/blast_mailer/woot-letter-7-1-13-blog.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800432740" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/db/migrate/20130626205444_add_unique_unsub_code_for_users.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323642" ignored="false" />
@@ -31,35 +31,35 @@
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/users/unsubscribe_email.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800323642" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/votes/landing.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372865327429" ignored="false" />
     <file path="/landing.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372800918050" ignored="false" />
-    <file path="/a.dummy" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804605249" ignored="false" />
+    <file path="/a.dummy" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997668477" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/shared/_logged_out_header.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372865327429" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/assets/stylesheets/sections/voting.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372865327429" ignored="false" />
-    <file path="$PROJECT_DIR$/../WB-Clone/app/assets/stylesheets/_core.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372865327429" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/assets/stylesheets/_core.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
     <file path="/_core.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804621324" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-Womens/db/schema.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-Womens/app/mailers/blast_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/db/schema.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375977634448" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/app/mailers/blast_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375977634448" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/config/routes.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/app/views/blast_mailer/woot-letter-7-1-13-blog.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/app/mailers/registration_mailer.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804942645" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/app/assets/stylesheets/_core.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-Womens/app/models/user.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372804916120" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/app/models/user.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375977634448" ignored="false" />
     <file path="$PROJECT_DIR$/../WB-Clone/app/views/users/profile.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1372812013979" ignored="false" />
     <file path="/*.regexp" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294157050" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-Womens/config/initializers/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294233699" ignored="false" />
     <file path="/setup_mail.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1373294232607" ignored="false" />
     <file path="/estimator_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375919082289" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375918768459" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375899376168" ignored="false" />
-    <file path="/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810036623" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997535223" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997535242" ignored="false" />
+    <file path="/index.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375986313853" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/controllers/wall_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810072447" ignored="false" />
     <file path="/wall_controller.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375810071194" ignored="false" />
-    <file path="/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375918534440" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/controllers/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375918534440" ignored="false" />
+    <file path="/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375996056938" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/controllers/wall.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375996099196" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/pick_photo_twitter.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813901151" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/pick_photo_facebook.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813433436" ignored="false" />
     <file path="/pick_photo_facebook.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813365029" ignored="false" />
     <file path="/pick_photo_twitter.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813901151" ignored="false" />
-    <file path="/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813895159" ignored="false" />
+    <file path="/wall.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997240182" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/unapproved.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813755219" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/views/wall/pick_photo_instagram.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813904894" ignored="false" />
     <file path="/pick_photo_instagram.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375813904894" ignored="false" />
@@ -68,11 +68,32 @@
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/config/application.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375892297568" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/lib/tasks/wall.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375892410624" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/lib/imageslicer.php" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375896318836" ignored="false" />
-    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/models/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375918687987" ignored="false" />
-    <file path="/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375917150367" ignored="false" />
-    <file path="/Gemfile" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375909264889" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/models/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375994274406" ignored="false" />
+    <file path="/wall_updater.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375972295533" ignored="false" />
+    <file path="/Gemfile" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375976376148" ignored="false" />
     <file path="/routes.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375909607800" ignored="false" />
     <file path="$PROJECT_DIR$/../UA-StandWithSpurs/Gemfile" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375909251804" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/config/initializers/delayed_job_config.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375972080255" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/app/views/registration_mailer/new_signup.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375976472870" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/app/views/home/details.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375977193838" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-Womens/lib/development_mail_interceptor.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375977634448" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/config/environments/development.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375978743368" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/lib/tasks/blast.rake" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/Gemfile" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979793564" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/views/home/details.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979811813" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/views/registration_mailer/new_signup.html.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979825349" ignored="false" />
+    <file path="$PROJECT_DIR$/../WB-Clone/app/views/registration_mailer/new_signup.text.erb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375979865618" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/admin/instagram_photo.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375987757417" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/controllers/home.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375987757417" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/models/submission.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375987757417" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/config/environments/production.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997541031" ignored="false" />
+    <file path="/colorbox.css" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375994550230" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/colorbox.css" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375994643378" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/javascripts/jquery.lhpGigaImgViewer.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375995138135" ignored="false" />
+    <file path="/jquery.lhpGigaImgViewer.js" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375995136704" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/app/assets/stylesheets/_variables.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997535207" ignored="false" />
+    <file path="/_variables.css.scss" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375996456391" ignored="false" />
+    <file path="$PROJECT_DIR$/../UA-StandWithSpurs/lib/paperclip_processors/cropper.rb" changelist="b49a358a-e793-4264-ac86-0bbc40836992" time="1375997628715" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,10 +185,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estimator_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="estimator_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="80" selection-start="3792" selection-end="3792" vertical-scroll-proportion="0.6048387">
+            <state line="135" column="80" selection-start="3677" selection-end="3677" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,10 +203,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="15" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+            <state line="42" column="104" selection-start="892" selection-end="892" vertical-scroll-proportion="1.0447761">
               <folding />
             </state>
           </provider>
@@ -221,9 +242,9 @@
         <option value="$PROJECT_DIR$/db/migrate/20130702051540_add_bus_history.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130806191402_rename_lat_col.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/data-gatherer.rake" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/estimator_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -808,7 +829,11 @@
       <created>1375919056925</created>
       <updated>1375919056926</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Can't count on largest historical subset group to be the most accurate. Let's try the one with the shortest time. Should be the safest and we can't take rest stops into consideration anyways">
+      <created>1375919091106</created>
+      <updated>1375919091106</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -991,9 +1016,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="15" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+        <state line="58" column="43" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="80" selection-start="3677" selection-end="3677" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1005,16 +1037,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="43" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/estimator_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="80" selection-start="3792" selection-end="3792" vertical-scroll-proportion="0.6048387">
+        <state line="42" column="104" selection-start="892" selection-end="892" vertical-scroll-proportion="1.0447761">
           <folding />
         </state>
       </provider>

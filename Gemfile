@@ -6,6 +6,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'therubyracer'
+gem 'execjs'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :development, :test do
   gem 'pry-rails'                              # Improved debugging
