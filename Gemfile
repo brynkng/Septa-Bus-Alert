@@ -10,6 +10,7 @@ gem 'therubyracer'
 gem 'execjs'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'pry-rails'                              # Improved debugging

@@ -1,5 +1,5 @@
 require "rvm/capistrano"
-require "bundler/capistrano" 
+require "bundler/capistrano"
 
 set :user, 'brynkng'
 set :use_sudo, false
