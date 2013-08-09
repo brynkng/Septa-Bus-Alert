@@ -14,7 +14,7 @@ require 'json'
 
 def running?
   result = ActiveRecord::Base.connection.execute('SELECT time FROM bus_history ORDER BY time DESC LIMIT 1')
-  if result.nil?
+  if result.first.nil?
     return false
   end
   minutesSinceLastRun = (((Time.now.to_i - DateTime.parse(result.first['time']).to_i).abs)/60).round
