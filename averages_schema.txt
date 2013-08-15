@@ -1,0 +1,59 @@
+create daily table of averages that pushes to apigee
+
+CREATE TABLE sections(
+	id serial,
+	date ,
+	route string,
+	direction text,
+	start_latitude float,
+	end_latitude float,
+	start_longitude float,
+	end_longitude float,
+	is_weekday boolean,
+	starting_hour time,
+	speed float
+);
+
+CREATE TABLE daily (
+	id serial,
+	section_id integer,
+	date ,
+	route string,
+	direction text,
+	start_latitude float,
+	end_latitude float,
+	start_longitude float,
+	end_longitude float,
+	is_weekday boolean,
+	starting_hour time,
+	speed float
+);
+
+
+COMPUTING DAILY AVERAGE
+starting at lowest latitude/longitude depending on direction we increment ourselves up by (.001?, .005?) we look at all buses that were starting in that area during that time threshold (2 hours if you can) and then follow them for one increment
+
+loop through and group those within a certain threshold (every .5 seconds). largest group wins (if tied take the fastest). average those left.
+
+if an average is within the threshold of section (.5m/s), combine with section
+
+if an average is way above or below 
+	we keep it on 'standby'. if next consecutive two are also at same high/low level 	than we combine with average. if not at same level then discard all kept
+
+take offby into consideration when computing daily average. only care about offby 0
+
+
+COMPUTING SECTIONS
+
+
+
+
+
+
+
+
+FUTURE ENHANCEMENTS
+store a 'link average' between each section
+can detect if one of their links dips below average. if two(three?) consecutive links dip below/above average in same direction then do SOMETHING average the two off ones and make that the new one? 
+
+Help me improve my app! (I'm on the bus now) if we record latest alarm estimation time and actual time...
