@@ -2,7 +2,6 @@ create daily table of averages that pushes to apigee
 
 CREATE TABLE sections(
 	id serial,
-	date ,
 	route string,
 	direction text,
 	start_latitude float,
@@ -10,7 +9,7 @@ CREATE TABLE sections(
 	start_longitude float,
 	end_longitude float,
 	is_weekday boolean,
-	starting_hour time,
+ 	starting_hour time,
 	speed float
 );
 

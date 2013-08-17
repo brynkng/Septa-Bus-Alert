@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806191402) do
+ActiveRecord::Schema.define(:version => 20130817030040) do
 
   create_table "bus_history", :id => false, :force => true do |t|
     t.integer  "id",          :null => false
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(:version => 20130806191402) do
   create_table "lock", :id => false, :force => true do |t|
     t.integer "id"
     t.boolean "is_locked", :default => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.time     "start_hour"
+    t.string   "route"
+    t.text     "direction"
+    t.float    "start_latitude"
+    t.float    "end_latitude"
+    t.float    "start_longitude"
+    t.float    "end_longitude"
+    t.boolean  "is_weekday"
+    t.float    "speed"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end
