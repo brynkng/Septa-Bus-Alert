@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_hour: 2013-08-16 23:00:40
+  route: MyString
+  direction: MyText
+  start_latitude: 1.5
+  end_latitude: 1.5
+  start_longitude: 1.5
+  end_longitude: 1.5
+  is_weekday: false
+  speed: 1.5
+
+two:
+  start_hour: 2013-08-16 23:00:40
+  route: MyString
+  direction: MyText
+  start_latitude: 1.5
+  end_latitude: 1.5
+  start_longitude: 1.5
+  end_longitude: 1.5
+  is_weekday: false
+  speed: 1.5
