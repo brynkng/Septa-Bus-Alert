@@ -46,6 +46,7 @@ task :gather => :environment do
               response['bus'].each do |bus|
                 bus['route'] = busNum.to_s
                 if bus['destination'] != "" and bus['Offset'] == 0
+                  puts bus['Offset']
                   ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitude, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
                     + bus['route'] + "','" \
                     + bus['lat'] + "','" \
