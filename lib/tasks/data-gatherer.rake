@@ -64,6 +64,7 @@ task :gather => :environment do
                     + bus['Offset'] + "')"
                   )
                 end
+                bus = nil
               end
             end
 
@@ -71,6 +72,14 @@ task :gather => :environment do
             puts e
           end
         end
+
+        #free up resources and run GC
+        busNumbers = nil
+        uri = nil
+        response = nil
+
+
+        GC.start
 
         puts "Sleeping..."
         sleep 5 * 60
