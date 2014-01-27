@@ -26,6 +26,7 @@ def running?
 end
 
 task :gather => :environment do
+  pidLocation = "/tmp/gather.pid"
   unless running?
     begin
       puts "Start gathering!"
