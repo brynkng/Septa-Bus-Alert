@@ -13,18 +13,23 @@ require 'json'
 # end
 
 def running?
-  result = ActiveRecord::Base.connection.execute('SELECT time FROM bus_history ORDER BY time DESC LIMIT 1')
-  if result.first.nil?
-    return false
-  end
-  minutesSinceLastRun = (((Time.now.to_i - DateTime.parse(result.first['time']).to_i).abs)/60).round
-  return minutesSinceLastRun < 5
+  #result = ActiveRecord::Base.connection.execute('SELECT time FROM bus_history ORDER BY time DESC LIMIT 1')
+  #if result.first.nil?
+  #  return false
+  #end
+  #minutesSinceLastRun = (((Time.now.to_i - DateTime.parse(result.first['time']).to_i).abs)/60).round
+  #return minutesSinceLastRun < 5
+
+   File.exists?("/var/run/gather.pid")
 end
 
 task :gather => :environment do
   unless running?
     begin
       puts "Start gathering!"
+      File.open("/var/run/gather.pid", 'w') {
+        |file| file.write("Running")
+      }
 
       while true
         busNumbers = (1..206).to_a + ('G'..'R').to_a
@@ -70,6 +75,7 @@ task :gather => :environment do
       end
     ensure
       puts "Sad face :(. Gathering over"
+      File.delete("/var/run/gather.pid") if running?
     end
   end
 end
