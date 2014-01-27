@@ -20,14 +20,16 @@ def running?
   #minutesSinceLastRun = (((Time.now.to_i - DateTime.parse(result.first['time']).to_i).abs)/60).round
   #return minutesSinceLastRun < 5
 
-   File.exists?("/var/run/gather.pid")
+  pidLocation = "/tmp/gather.pid"
+
+   File.exists?(pidLocation)
 end
 
 task :gather => :environment do
   unless running?
     begin
       puts "Start gathering!"
-      File.open("/var/run/gather.pid", 'w') {
+      File.open(pidLocation, 'w') {
         |file| file.write("Running")
       }
 
@@ -75,7 +77,7 @@ task :gather => :environment do
       end
     ensure
       puts "Sad face :(. Gathering over"
-      File.delete("/var/run/gather.pid") if running?
+      File.delete(pidLocation) if running?
     end
   end
 end
