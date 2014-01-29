@@ -35,50 +35,47 @@ task :gather => :environment do
       }
 
       while true
-        busNumbers = (1..206).to_a + ('G'..'R').to_a
 
-        busNumbers.each do |busNum|
-          puts "Processing bus: " + busNum.to_s
-
-          uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + busNum.to_s)
+          uri = URI.parse("http://www3.septa.org/hackathon/TransitViewAll/")
 
           begin
 
             response = Net::HTTP.get_response(uri)
 
-            if response.body != 'Invalid Route'
+            if response.body.length > 0
               response = JSON.parse response.body
-
               #response
-              # ['bus'][array of buses][lat | lng | VehicleId | BlockId | Direction | destination | Offset]
-              response['bus'].each do |bus|
-                bus['route'] = busNum.to_s
-                if bus['destination'] != "" and bus['Offset'].to_i == 0
-                  ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitude, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
-                    + bus['route'] + "','" \
-                    + bus['lat'] + "','" \
-                    + bus['lng'] + "','" \
-                    + bus['VehicleID'] + "','" \
-                    + bus['BlockID'] + "','" \
-                    + bus['Direction'] + "','" \
-                    + bus['destination'] + "','" \
-                    + bus['Offset'] + "')"
-                  )
+              #{"date time"=>[{"route"=>[{"lat"=>40.005753, "lng"=>-75.194183, "label"=>8188, "VehicleID"=>8188, "BlockID"=>1013, "Direction"=>" ", "destination"=>nil, "Offset"=>1}]}]}
+              response[response.keys.first].each do |routeData|
+                route = routeData.keys.first
+
+                puts "Processing route: " + route.to_s
+
+                routeData[route].each do |bus|
+
+                  if bus['destination'].to_s != "" and bus['Offset'].to_i == 0 and bus['Direction'].to_s != ' '
+                    ActiveRecord::Base.connection.execute("INSERT INTO bus_history (route, latitude, longitude, vehicle_id, block_id, direction, destination, off_by) VALUES ('" \
+                      + route + "','" \
+                      + bus['lat'].to_s + "','" \
+                      + bus['lng'].to_s + "','" \
+                      + bus['VehicleID'].to_s + "','" \
+                      + bus['BlockID'].to_s + "','" \
+                      + bus['Direction'] + "','" \
+                      + bus['destination'] + "','" \
+                      + bus['Offset'].to_s + "')"
+                    )
+                  end
                 end
-                bus = nil
               end
             end
 
           rescue Exception => e
             puts e
           end
-        end
 
         #free up resources and run GC
-        busNumbers = nil
         uri = nil
         response = nil
-
 
         GC.start
 
