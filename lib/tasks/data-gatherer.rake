@@ -80,7 +80,7 @@ task :gather => :environment do
         GC.start
 
         puts "Sleeping..."
-        sleep 5 * 60
+        sleep 60
       end
     ensure
       puts "Sad face :(. Gathering over"
