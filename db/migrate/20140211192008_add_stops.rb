@@ -6,7 +6,7 @@ class AddStops < ActiveRecord::Migration
       routes = ActiveRecord::Base.connection.execute("SELECT DISTINCT route FROM bus_history").to_a.map {|routeHash| routeHash['route']}
 
       routes.each do |route|
-        uri = URI.parse("http://www3.septa.org/hackathon/Stops/" + route)
+        uri = URI.parse(URI.escape("http://www3.septa.org/hackathon/Stops/" + route))
         puts 'processing route: ' + route
 
         response = Net::HTTP.get_response(uri)
