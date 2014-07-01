@@ -16,6 +16,10 @@ class MigrateToUseGtfs < ActiveRecord::Migration
     end
     add_index :routes, :route_id
 
+    if ActiveRecord::Base.connection.table_exists? :stops
+      drop_table :stops
+    end
+
     #add stops
     create_table :stops do |t|
       t.integer "stop_id"
