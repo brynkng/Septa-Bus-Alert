@@ -1,7 +1,5 @@
 class MigrateToUseGtfs < ActiveRecord::Migration
   def up
-    drop_table :stops
-    drop_table :stops_directions
 
     #add routes
     create_table :routes do |t|
