@@ -1,6 +1,8 @@
 task :import_stop_slots , [:route] => :environment do |t, args|
   args.with_defaults(:route => "all")
 
+  puts "Starting import for: " + args.route
+
   if args.route == 'all'
     routes = RouteDirection.all
   else
