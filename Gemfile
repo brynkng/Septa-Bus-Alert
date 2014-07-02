@@ -10,7 +10,7 @@ gem 'therubyracer'
 gem 'execjs'
 gem 'capistrano'
 gem 'rvm-capistrano'
-#gem "activerecord-import", ">= 0.2.0"
+gem "activerecord-import", ">= 0.2.0"
 gem 'geocoder'
 gem 'whenever', :require => false
 
