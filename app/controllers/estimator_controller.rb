@@ -3,8 +3,9 @@ require 'json'
 
 class EstimatorController < ActionController::Base
   protect_from_forgery
+  @@busNum = 0
 
-  def estimate(skipFirstBus = false)
+  def estimate(startingBus = false)
     @route = params[:route]
     @direction = params[:direction]
     stop_id = params[:stop_id]
@@ -42,11 +43,14 @@ class EstimatorController < ActionController::Base
     #@direction = "NorthBound"
 
     buses = getNextBusesToArrive
-    if skipFirstBus
-      nextToArrive = buses[1]
+    if startingBUs
+      nextToArrive = buses[startingBus]
     else
       nextToArrive = buses.first
     end
+
+	render :json => nextToArrive
+	return
 
     vehicleData = getStartHistoricalData(nextToArrive)
 
@@ -68,7 +72,7 @@ class EstimatorController < ActionController::Base
 
     if finalArrivalData
       if finalArrivalData[:time_to_arrive] <= 0
-        return estimate(true)
+        return estimate(@@busNum + 1)
       else
         render :json => {
             'time to arrive' => finalArrivalData[:time_to_arrive].to_s + ' minutes',
