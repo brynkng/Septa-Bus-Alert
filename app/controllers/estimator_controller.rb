@@ -43,7 +43,7 @@ class EstimatorController < ActionController::Base
     #@direction = "NorthBound"
 
     buses = getNextBusesToArrive
-    if startingBUs
+    if startingBus
       nextToArrive = buses[startingBus]
     else
       nextToArrive = buses.first
