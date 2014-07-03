@@ -79,6 +79,11 @@ task :gather => :environment do
 
         GC.start
 
+        count = BusHistory.count
+        if count > 10000000
+          BusHistory.destroy_all('id < ' + (BusHistory.last.id - 10000000).to_s)
+        end
+
         puts "Sleeping..."
         sleep 60
       end
