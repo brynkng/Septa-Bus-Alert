@@ -34,19 +34,19 @@ class TravelTimeCalculator
 
 		unless travel_time > 0
 			#most likely we couldn't find any more buses going this direction, let's find the furthest one along the opposite direction
-			puts 'Searching buses in opposite direction'
+			#puts 'Searching buses in opposite direction'
 
 			opposite_route_direction = get_opposite_direction(route_direction)
 
-			last_stop_on_opposite_direction = get_last_stop_on_route(route_direction)
+			last_stop_on_opposite_direction = get_last_stop_on_route(opposite_route_direction)
 			first_stop_on_route = get_first_stop_on_route(route_direction)
 
 			opposite_route_travel_time, bus = self.calculate_travel_time_until_next_bus(opposite_route_direction, last_stop_on_opposite_direction)
-			puts 'opposite route travel time: ' + opposite_route_travel_time.to_s
-			puts "\n"
+			#puts 'opposite route travel time: ' + opposite_route_travel_time.to_s
+			#puts "\n"
 
 			first_stop_travel_time = self.get_travel_time_between_stops(first_stop_on_route, desired_stop)
-			puts 'travel time from first stop: ' + first_stop_travel_time.to_s
+			#puts 'travel time from first stop: ' + first_stop_travel_time.to_s
 
 			travel_time = opposite_route_travel_time + first_stop_travel_time
 		end
@@ -75,6 +75,7 @@ class TravelTimeCalculator
 
 	def self.calculate_travel_time_until_next_bus(route_direction, desired_stop)
 		buses = ::SeptaApiWrapper.get_next_buses_on_route(route_direction, desired_stop)
+		puts buses.inspect
 		travel_time = 0
 		bus_number = 0
 		bus = nil
@@ -119,11 +120,11 @@ class TravelTimeCalculator
 
 		stop_slots = get_stop_slots_between_stops(start_stop, end_stop)
 
-		stop_slots.each do |slot|
-			puts 'stop slot distance time: ' + slot.distance_time.to_s
-			puts 'stop slot stop id: ' + slot.stop_id.to_s
-			puts "\n"
-		end
+		#stop_slots.each do |slot|
+		#	puts 'stop slot distance time: ' + slot.distance_time.to_s
+		#	puts 'stop slot stop id: ' + slot.stop_id.to_s
+		#	puts "\n"
+		#end
 
 		stop_slot_times = stop_slots.map{|slot| slot.distance_time}
 
@@ -135,11 +136,11 @@ class TravelTimeCalculator
 				outlier_limit = 1.5 * mean
 			end
 
-			puts 'outlier limit: ' + outlier_limit.to_s
-
-			stop_slot_times.each do |time|
-				puts 'time: ' + time.to_s
-			end
+			#puts 'outlier limit: ' + outlier_limit.to_s
+			#
+			#stop_slot_times.each do |time|
+			#	puts 'time: ' + time.to_s
+			#end
 
 			#this seems like a stupid hack, we should prevent skewed slots from being recorded in the first place
 			stop_slot_times.each do |time|
