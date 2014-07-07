@@ -3,7 +3,11 @@ require 'json'
 
 class SeptaApiWrapper
 
-	def self.get_next_buses_on_route(route_short_name, direction, latitude, longitude)
+	def self.get_next_buses_on_route(route_direction, desired_stop)
+		route_short_name = route_direction.route_short_name
+		direction = route_direction.direction_name
+		latitude = desired_stop.stop_lat
+		longitude = desired_stop.stop_lon
 		uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + route_short_name)
 
 		begin

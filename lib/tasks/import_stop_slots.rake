@@ -7,7 +7,7 @@ task :import_stop_slots , [:route] => :environment do |t, args|
     routes = RouteDirection.all
 	StopSlot.destroy_all
   else
-    routes = RouteDirection.find_all_by_route_short_name(args.route)
+    routes = RouteDirection.find_all_by_route_short_name_and_direction_name(args.route, 'Northbound')
 	StopSlot.destroy_all(route_id: routes.first.route_id)
   end
 
@@ -67,18 +67,9 @@ end
 def get_start_history_records(route, direction, startStop, startTime, isWeekend)
   weekend_query = isWeekend ? " AND extract('ISODOW' FROM time) > 5" : "AND extract('ISODOW' FROM time) < 6"
 
-  data = {
-      weekend_query: weekend_query,
-      startStop: startStop,
-      startTime: startTime,
-      direction: direction,
-      route: route
-  }
-
   find_records = lambda {
-    |data|
       BusHistory.near(
-        [data[:startStop].stop_lat, data[:startStop].stop_lon]).where(
+        [startStop.stop_lat, startStop.stop_lon]).where(
         'route = ? AND direction = ? AND EXTRACT(HOUR FROM time) BETWEEN ? AND ?' + weekend_query,
         route.route_short_name,
         direction,
@@ -86,7 +77,7 @@ def get_start_history_records(route, direction, startStop, startTime, isWeekend)
         startTime + 2
     ).order('distance').limit(100)
   }
-
+                                              rv
   SuperGeocoder.new.geocode_them_all(find_records, data)
 end
 
@@ -97,23 +88,15 @@ def get_stop_distance_times(start_history_records, startStop, endStop, route, di
   stop_distance_times = []
   start_history_records.each do |start_record|
 
-    data = {
-        endStop: endStop,
-        direction: direction,
-        start_record: start_record,
-        route: route
-    }
-
     find_stop_record = lambda {
-        |data|
       BusHistory.near(
-          [data[:endStop].stop_lat, data[:endStop].stop_lon], 1).where(
+          [endStop.stop_lat, endStop.stop_lon], 1).where(
           'route = ? AND direction = ? AND vehicle_id = ? AND time BETWEEN ? AND ?',
-          data[:route].route_short_name,
-          data[:direction],
-          data[:start_record].vehicle_id,
-          data[:start_record].time + 1.seconds,
-          data[:start_record].time + 1.hours
+          route.route_short_name,
+          direction,
+          start_record.vehicle_id,
+          start_record.time + 1.seconds,
+          start_record.time + 1.hours
       )
       .order('distance').limit(1).first
     }

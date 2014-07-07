@@ -57,4 +57,5 @@ SeptaBusAlert::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   get '/estimate/:route/:direction/:stop_id' => 'Estimator#estimate'
+  get '/estimate_all/:route/:direction/:stop_id' => 'Estimator#estimate_all'
 end
