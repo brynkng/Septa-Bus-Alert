@@ -3,8 +3,8 @@ require 'json'
 
 class SeptaApiWrapper
 
-	def self.get_next_buses_on_route(route, direction, latitude, longitude)
-		uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + route.to_s)
+	def self.get_next_buses_on_route(route_short_name, direction, latitude, longitude)
+		uri = URI.parse("http://www3.septa.org/hackathon/TransitView/" + route_short_name)
 
 		begin
 
@@ -15,15 +15,15 @@ class SeptaApiWrapper
 				response['bus'].keep_if {
 						|bus|
 
-					if bus['Direction'] == direction
-						case direction
-							when 'NorthBound'
+					if bus['Direction'].downcase == direction.downcase
+						case direction.downcase
+							when 'northbound'
 								bus['lat'].to_f < latitude
-							when 'SouthBound'
+							when 'southbound'
 								bus['lat'].to_f > latitude
-							when 'WestBound'
+							when 'westbound'
 								bus['long'].to_f < longitude
-							when 'EastBound'
+							when 'eastbound'
 								bus['long'].to_f > longitude
 						end
 					end
@@ -39,7 +39,15 @@ class SeptaApiWrapper
 					bus1Distance <=> bus2Distance
 				}
 
-				return sortedBuses
+				septaBuses = []
+
+				sortedBuses.map {|bus| septaBuses.push(::SeptaBus.new(bus['lat'], bus['lng'], bus['VehicleID'], bus['Direction'], bus['destination'], bus['Offset']))}
+
+				#sortedBuses.each do |bus|
+				#	puts bus.inspect
+				#end
+
+				septaBuses
 			end
 		end
 	end

@@ -5,8 +5,10 @@ task :import_stop_slots , [:route] => :environment do |t, args|
 
   if args.route == 'all'
     routes = RouteDirection.all
+	StopSlot.destroy_all
   else
     routes = RouteDirection.find_all_by_route_short_name(args.route)
+	StopSlot.destroy_all(route_id: routes.first.route_id)
   end
 
   hourInterval = 2
@@ -46,7 +48,7 @@ task :import_stop_slots , [:route] => :environment do |t, args|
 
           #remove outliers
           unless stop_distance_times.empty? or stop_distance_times.count < 5
-            mean_distance_time = interquartile_mean(stop_distance_times).to_i
+            mean_distance_time = ::TravelTimeCalculator.interquartile_mean(stop_distance_times).to_i
 
             puts 'mean distance time: ' + mean_distance_time.to_s
 
@@ -60,15 +62,6 @@ task :import_stop_slots , [:route] => :environment do |t, args|
       #if we loop through and grab the bearings from each we should be able to get only ones a certain direction from the desired point.
     end
   end
-end
-
-def interquartile_mean(array)
-  arr = array.sort
-  length = arr.size
-  quart = (length/4.0).floor
-  fraction = 1-((length/4.0)-quart)
-  new_arr = arr[quart..-(quart + 1)]
-  (fraction*(new_arr[0]+new_arr[-1]) + new_arr[1..-2].inject(:+))/(length/2.0)
 end
 
 def get_start_history_records(route, direction, startStop, startTime, isWeekend)
