@@ -70,7 +70,8 @@ class TravelTimeCalculator
 	end
 
 	def self.get_last_stop_on_route(route_direction)
-		SimplifiedStop.where('route_direction_id = ?', route_direction.id).order('stop_sequence DESC').limit(1).first
+		#skip the very last one because we repeat the data repeats the same stop for the last and first of a direction. This way we only count it once
+		SimplifiedStop.where('route_direction_id = ?', route_direction.id).order('stop_sequence DESC').limit(2)[1]
 	end
 
 	def self.calculate_travel_time_until_next_bus(route_direction, desired_stop)
