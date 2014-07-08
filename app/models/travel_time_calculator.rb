@@ -55,7 +55,7 @@ class TravelTimeCalculator
 	end
 
 
-	private
+	#private
 
 	def self.get_opposite_direction(route_direction)
 		RouteDirection.where(
@@ -130,11 +130,12 @@ class TravelTimeCalculator
 		stop_slot_times = stop_slots.map{|slot| slot.distance_time}
 
 		unless stop_slot_times.empty?
-			mean = stop_slot_times[(stop_slot_times.count / 2).to_i]
+			stop_slot_times.sort!
+			mean = stop_slot_times[(stop_slot_times.count / 2).floor]
 			if stop_slot_times.count > 4
-				outlier_limit = 1.5 * interquartile_mean(stop_slot_times).to_i
+				outlier_limit = interquartile_mean(stop_slot_times).to_i
 			else
-				outlier_limit = 1.5 * mean
+				outlier_limit = mean
 			end
 
 			#puts 'outlier limit: ' + outlier_limit.to_s
