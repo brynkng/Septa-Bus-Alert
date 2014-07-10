@@ -78,7 +78,7 @@ def get_start_history_records(route, direction, startStop, startTime, isWeekend)
     ).order('distance').limit(100)
   }
 
-  SuperGeocoder.new.geocode_them_all(find_records, data)
+  SuperGeocoder.new.geocode_them_all(find_records)
 end
 
 def get_stop_distance_times(start_history_records, startStop, endStop, route, direction)
@@ -101,7 +101,7 @@ def get_stop_distance_times(start_history_records, startStop, endStop, route, di
       .order('distance').limit(1).first
     }
 
-    stop_record = SuperGeocoder.new.geocode_them_all(find_stop_record, data)
+    stop_record = SuperGeocoder.new.geocode_them_all(find_stop_record)
 
     if stop_record
       record_distance = stop_record.distance_to(start_record)
