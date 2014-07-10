@@ -77,7 +77,7 @@ def get_start_history_records(route, direction, startStop, startTime, isWeekend)
         startTime + 2
     ).order('distance').limit(100)
   }
-                                              rv
+
   SuperGeocoder.new.geocode_them_all(find_records, data)
 end
 

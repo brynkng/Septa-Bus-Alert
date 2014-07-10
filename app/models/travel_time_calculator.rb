@@ -1,5 +1,12 @@
 class TravelTimeCalculator
 
+	###ADJUSTMENT VARIABLES###
+
+	#offsets past this point seem to indicate a bus just standing still
+	MAX_OFFSET = 3
+
+
+
 	def self.get_next_arrivals_for_all_buses(desired_stop)
 		next_arrivals = []
 		route_direction = RouteDirection.find_by_id(desired_stop.route_direction_id)
@@ -102,10 +109,12 @@ class TravelTimeCalculator
 		#puts 'stop near bus: ' + stop_near_bus.stop_id.to_s
 		travel_time_between_stops = get_travel_time_between_stops(stop_near_bus, desired_stop)
 		#puts 'travel time between stops: ' + travel_time_between_stops.to_s
-		offset = (bus.offset.to_i * 60)
-		#puts 'offset: ' + offset.to_s
+		offset_minutes = bus.offset.to_i
+		offset_minutes = (offset_minutes > MAX_OFFSET ? MAX_OFFSET : offset_minutes)
+		offset_seconds = (offset_minutes * 60)
+		#puts 'offset: ' + offset_seconds.to_s
 
-		return travel_time_between_stops - offset
+		return travel_time_between_stops - offset_seconds
 	end
 
 	def self.find_closest_stop_to_bus(route_direction, bus)
